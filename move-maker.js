@@ -16,8 +16,35 @@
         ];
 */
 function validateMove(move, board) {
-    // Implement this at the end if you have time, otherwise you can help your teammates!
-    return true;
+  // Implement this at the end if you have time, otherwise you can help your teammates!
+
+  //check if the user input is valid (a,b) where a and b can be more than 0 but less than 4:
+  // a
+  // ,
+  // b
+  //check if this position is not yet taken
+
+  if (move.length === 3) {
+    if (move[0] > 0 && move[0] < 4) {
+      if (move[1] === ",") {
+        if (move[2] > 0 && move[2] < 4) {
+          if (board[move[0] - 1][move[2] - 1] === "_") {
+            return true;
+          } else {
+            return false;
+          }
+        } else {
+          return false;
+        }
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
 }
 
 /*
@@ -32,5 +59,10 @@ function validateMove(move, board) {
             - Return true
 */
 export function makeMove(board, move, player) {
+  if (validateMove(move, board)) {
+    board[move[0] - 1][move[2] - 1] = player;
+    return true;
+  } else {
     return false;
+  }
 }
