@@ -39,5 +39,4 @@ const board = [
   ["O", "O", "X"],
 ];
 
-printBoard(board);
-console.log("No moves left?", checkIfNoMovesLeft(board));
+
