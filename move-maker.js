@@ -61,6 +61,7 @@ export function makeMove(board, move, player) {
     board[move[0] - 1][move[2] - 1] = player;
     return true;
   } else {
+    console.log("Try again...");
     return false;
   }
 }
